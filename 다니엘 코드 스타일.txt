@@ -1,0 +1,90 @@
+class UnitBehaviourManager{
+	UnitBehaviour[] _behaviours;
+	Unit _unit;
+	public void InitBehaviourMgr(Unit _u){
+		_behaviours = GetCom..Childs<UnitBehaviour>();
+		for(int i =0;i<_behaviours .leng,..)
+			_behaviours[i].InitUnitBehaviour(this)
+	}
+
+	public void Start전투(){
+		//
+	}
+	public void ArriveTargeTile(){
+		//excute();
+	}
+
+	public void 마나꽉찼을때(){
+		for(int i =0;i<_behaviours .leng,..){
+			if(_behaviours[i].꽉찼을때)
+				_behaviours[i].Excute();
+
+		}
+	}
+	public void 죽었을 때(){
+	}
+	
+	public void End전투(){
+	}
+}
+
+class UnitBehaviour : MonoBehaviour{
+public UnitBehaviourManager  _unitBehaviourMgr;
+public bool _excuteOnStart전투;
+public bool _excuteOn죽었을때;
+pub ...
+public virtual void InitUnitBehaviour(UnitBehaviourManager  _uBrMgr){
+      // 초기화
+	_unitBehaviourMgr =_uBrMgr;
+	if(_excuteOnStart){
+		Excute();
+	}
+}
+public virtual void Start전투(){
+	//
+}
+public virtual void Excute(){
+	// 행동 기능 
+}
+public virtual void Excute(Unit _targetU){
+}
+}
+
+class WaitForTime : UnityBehaviour{
+public UnitBehaviour _nextBehaviour;
+public flaot _time;
+public override void Excute(){
+	// 행동 기능 
+Start(...);
+}
+
+IEno... ProcessWaitForTime(){
+yield return new WaitforSec(_time);
+_nextBehaviour.excute();
+}
+}
+
+class Multi : ...{
+public UnitBehaviour[] _nextBehaviours;
+public override void Excute(){
+	for(...)
+		_nextBehaviours[i].Excute();
+}
+}
+
+충돌
+OnTrigger{
+	collider.GetCompo..<Unit>();
+if()
+_nextBehaviour.Excute(_unit);
+}
+
+class ApplyDamage : UnitBehaviour{
+float _damage;
+//데미지 량
+public override void InitUnity(){
+
+ _damage = _unityBehaviourMgr._unit._unitData.Damage;
+}
+public override void Excute(Unit _u){
+    _u.TakeDamage(_damage);
